@@ -1,5 +1,7 @@
 /* ДЗ 1 - Функции */
 
+// const { fn } = require('jquery');
+
 /*
  Задание 1:
 
@@ -12,7 +14,13 @@
 
  Другими словами: функция должна возвращать в неизменном виде то, что поступает ей на вход
  */
-function returnFirstArgument(value) {}
+function returnFirstArgument(value) {
+  return value;
+}
+
+const firstArg = returnFirstArgument('Hej!');
+
+console.log(firstArg);
 
 /*
  Задание 2:
@@ -22,14 +30,16 @@ function returnFirstArgument(value) {}
  Пример:
    sumWithDefaults(10, 20) вернет 30
    sumWithDefaults(2, 4) вернет 6
-
  2.2 *: Значение по умолчанию для второго аргумента должно быть равно 100
 
  Пример:
    sumWithDefaults(10) вернет 110
  */
-function sumWithDefaults(a, b) {}
-
+function sumWithDefaults(a, b = 100) {
+  return a + b;
+}
+const sumResult = sumWithDefaults(5);
+console.log(sumResult);
 /*
  Задание 3:
 
@@ -38,7 +48,14 @@ function sumWithDefaults(a, b) {}
  Пример:
    returnFnResult(() => 'привет') вернет 'привет'
  */
-function returnFnResult(fn) {}
+function returnFnResult(fn) {
+  return fn();
+}
+function func() {
+  return 'Hola!';
+}
+const result = returnFnResult(func);
+console.log(result);
 
 /*
  Задание 4:
@@ -56,18 +73,36 @@ function returnFnResult(fn) {}
    console.log(f()); // выведет 12
    console.log(f()); // выведет 13
  */
-function returnCounter(number) {}
+function returnCounter(number) {
+  function F() {
+    number = (number || 0) + 1;
+    return number;
+  }
+  return F;
+}
 
-/*
- Задание 5 *:
+const f = returnCounter(10);
 
- Функция должна возвращать все переданные ей аргументы в виде массива
- Количество переданных аргументов заранее неизвестно
+console.log(f()); // выведет 1
+console.log(f()); // выведет 2
+console.log(f(10)); // выведет 11
+console.log(f(11)); // выведет 12
+console.log(f(12)); // выведет 13
 
- Пример:
-   returnArgumentsArray(1, 2, 3) вернет [1, 2, 3]
- */
-function returnArgumentsArray() {}
+// /*
+//  Задание 5 *:
+
+//  Функция должна возвращать все переданные ей аргументы в виде массива
+//  Количество переданных аргументов заранее неизвестно
+
+//  Пример:
+//    returnArgumentsArray(1, 2, 3) вернет [1, 2, 3]
+//  */
+function returnArgumentsArray(...args) {
+  const arr = [];
+  arr.push(...args);
+  return arr;
+}
 
 /*
  Задание 6 *:
@@ -84,7 +119,10 @@ function returnArgumentsArray() {}
 
    console.log(newSum()) выведет 6
  */
-function bindFunction(fn, ...args) {}
+function bindFunction(fn, ...args) {
+  return () => fn(...args);
+}
+bindFunction();
 
 export {
   returnFirstArgument,
