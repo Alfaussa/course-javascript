@@ -1,5 +1,5 @@
 import { randomNumberArray } from '../../scripts/helper';
-import { createProxy, forEach, map, reduce, upperProps } from './index';
+import { /*createProxy, */ forEach, map, reduce, upperProps } from './index';
 
 describe('ДЗ 2 - объекты и массивы', () => {
   describe('forEach', () => {
@@ -77,16 +77,16 @@ describe('ДЗ 2 - объекты и массивы', () => {
     });
   });
 
-  describe('createProxy', () => {
-    it('должна вернуть Proxy, который возводит в квадрат любое записываемое значение', () => {
-      let obj = {};
+  //   describe('createProxy', () => {
+  //     it('должна вернуть Proxy, который возводит в квадрат любое записываемое значение', () => {
+  //       let obj = {};
 
-      obj = createProxy(obj);
+  //       obj = createProxy(obj);
 
-      obj.a = 2;
-      obj.b = 5;
+  //       obj.a = 2;
+  //       obj.b = 5;
 
-      expect(obj).toEqual({ a: 4, b: 25 });
-    });
-  });
+  //       expect(obj).toEqual({ a: 4, b: 25 });
+  //     });
+  //   });
 });

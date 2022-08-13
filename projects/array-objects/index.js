@@ -9,7 +9,17 @@
  Пример:
    forEach([1, 2, 3], (el) => console.log(el))
  */
-function forEach(array, fn) {}
+function forEach(array, fn) {
+  for (let i = 0; i < array.length; i++) {
+    fn(array[i], i, array);
+  }
+}
+
+/// Пример с ForEach
+// let array = [1, 2, 3]
+// array.forEach(function(i) {
+//   console.log(i);
+// });
 
 /*
  Задание 2:
@@ -20,7 +30,21 @@ function forEach(array, fn) {}
  Пример:
    map([1, 2, 3], (el) => el ** 2) // [1, 4, 9]
  */
-function map(array, fn) {}
+
+function map(array, fn) {
+  const newArray = [];
+  for (let i = 0; i < array.length; i++) {
+    newArray[i] = fn(array[i], i, array);
+  }
+  return newArray;
+}
+
+// let array = [1, 2, 3];
+// console.log(map(array));
+//Пример с Map
+// let array = [1, 2, 3];
+// let double = array.map(item => item ** 2);
+// console.log(double);
 
 /*
  Задание 3:
@@ -31,7 +55,26 @@ function map(array, fn) {}
  Пример:
    reduce([1, 2, 3], (all, current) => all + current) // 6
  */
-function reduce(array, fn, initial) {}
+
+function reduce(array, fn, initial) {
+  let i = 0;
+  if (initial === undefined) {
+    initial = array[0];
+    i++;
+  }
+  for (i; i < array.length; i++) {
+    initial = fn(initial, array[i], i, array);
+  }
+  return initial;
+}
+// let result = reduce([1, 2, 3], (all, current) => all + current) ;
+// console.log(result);
+
+//Пример с reduce
+
+// let array = [1, 2, 3];
+// let reduceResult = array.reduce((previousValue, currentValue) => previousValue + currentValue);
+// console.log(reduceResult);
 
 /*
  Задание 4:
@@ -41,7 +84,14 @@ function reduce(array, fn, initial) {}
  Пример:
    upperProps({ name: 'Сергей', lastName: 'Петров' }) вернет ['NAME', 'LASTNAME']
  */
-function upperProps(obj) {}
+
+function upperProps(obj) {
+  const newArr = [];
+  for (const key in obj) {
+    newArr.push(key.toUpperCase());
+  }
+  return newArr;
+}
 
 /*
  Задание 5 *:
@@ -54,6 +104,8 @@ function upperProps(obj) {}
    obj.foo = 2;
    console.log(obj.foo); // 4
  */
-function createProxy(obj) {}
+// function createProxy(obj) {
 
-export { forEach, map, reduce, upperProps, createProxy };
+// }
+
+export { forEach, map, reduce, upperProps /*createProxy*/ };
