@@ -46,7 +46,8 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: [/node_modules/],
+
         loader: 'babel-loader',
         options: { cacheDirectory: true },
       },
@@ -61,7 +62,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(jpe?g|png|gif|svg|eot|ttf|woff|woff2)$/i,
+        test: /\.(jpeg|png|gif|svg|eot|ttf|woff|woff2)$/i,
         loader: 'file-loader',
         options: {
           name: '[hash:8].[ext]',

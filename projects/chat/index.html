@@ -1,5 +1,6 @@
 <style>
-    html, body, #app, #main {
+
+html, body, #app, #main {
         width: 100%;
         height: 100%;
         padding: 0;
@@ -148,7 +149,8 @@
         outline: 0;
         background: #0E1621;
         font-family: "Ubuntu light";
-        font-size: 16px;       
+        font-size: 16px;    
+        color:white;   
     }
     .line{
         width: 70%;
@@ -219,51 +221,52 @@
     font-style: normal; 
     font-weight: normal; 
     } 
+
 </style>
-<div id="app">
-    <div id="login" class="hidden">
-        <div class="login-pic">
-            <img src="./Vector.png" alt="чат">
-        </div>
-        <div class="login-header">
-            <h2>Авторизация</h2>
-            <div class="header-content">
-                Введите пожалуйста свой ник для дальнейшей авторизации
+    <div id="app">
+        <div id="login" class="hidden">
+            <div class="login-pic">
+                <img src="./Vector.png" alt="чат">
             </div>
-        </div>
-        <div class="login-field">
-            <input type="text" class="login-name-input" data-role="login-name-input" placeholder="Введите свой ник">
-        </div>
-        <hr class="line" size="0.5">
-        <div class="login-field">
-            <button class="login-submit" data-role="login-submit">Войти</button>
-        </div>
-        <div class="login-error" data-role="login-error"></div>
-    </div>
-
-    <div id="main" class="hidden">
-        <div class="left-side">
-            <div class="user-info">
-                <div class="user-photo" data-role="user-photo"></div>
-                <div class="user-name" data-role="user-name"></div>
-            </div>
-
-            <div class="user-list-container">
-                <div class="user-list-header">
-                    Все пользователи:
-                </div>
-
-                <div class="user-list" data-role="user-list">
+            <div class="login-header">
+                <h2>Авторизация</h2>
+                <div class="header-content">
+                    Введите пожалуйста свой ник для дальнейшей авторизации
                 </div>
             </div>
+            <div class="login-field">
+                <input type="text" class="login-name-input" data-role="login-name-input" placeholder="Введите свой ник">
+            </div>
+            <hr class="line" size="0.5">
+            <div class="login-field">
+                <button class="login-submit" data-role="login-submit">Войти</button>
+            </div>
+            <div class="login-error" data-role="login-error"></div>
         </div>
-        <div class="right-side">
-            <div class="messages-container" data-role="messages-list"></div>
-            <div class="input-container" data-role="message-sender">
-                <input class="message-input" data-role="message-input" type="text" placeholder="сообщение"/>
-                <button class="send-button" data-role="message-send-button">Отправить</button>
+    
+        <div id="main" class="hidden">
+            <div class="left-side">
+                <div class="user-info">
+                    <div class="user-photo" data-role="user-photo"></div>
+                    <div class="user-name" data-role="user-name"></div>
+                </div>
+    
+                <div class="user-list-container">
+                    <div class="user-list-header">
+                        Все пользователи:
+                    </div>
+    
+                    <div class="user-list" data-role="user-list">
+                    </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="messages-container" data-role="messages-list"></div>
+                <div class="input-container" data-role="message-sender">
+                    <input class="message-input" data-role="message-input" type="text" placeholder="сообщение"/>
+                    <button class="send-button" data-role="message-send-button">Отправить</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
- 
+
