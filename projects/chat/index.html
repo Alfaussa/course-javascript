@@ -1,0 +1,218 @@
+<style>
+    html, body, #app, #main {
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        font-family: "Ubuntu"; 
+    }
+
+    #app {
+        display: flex;
+        justify-content: center;
+        background: #17212B;
+    }
+
+    #main {
+        display: flex;
+    }
+
+    .left-side {
+        flex-grow: 1;
+        max-width: 320px;
+        background: #17212B;        
+        color: #7F91A4;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+
+    .user-info {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    }
+
+    .user-name {
+        font-size: 18px;
+        font-weight: bold;
+        color: #5387C1;
+    }
+
+    .user-photo, .message-item-photo {
+        margin-right: 15px;
+        background: url(/projects/mega-chat-3/no-photo.png);
+        background-size: cover;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+    }
+
+    .user-list-header {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+
+    .user-list {
+        padding: 5px 0 0 10px
+    }
+
+    .right-side {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+        padding: 10px;
+        background: #17212B;
+       
+    }
+
+    .messages-container {
+        flex-grow: 1;
+        overflow: scroll;
+        background: #0E1621;
+    }
+
+    .input-container {
+        margin-top: 10px;
+        display: flex;
+        align-items: center;
+        background: #17212B;
+    }
+
+    .message-input {
+        height: 30px;
+        flex-grow: 1;
+        margin: 0 10px 0 0;
+    }
+
+    .send-button {
+        width: 132px;
+        height: 43px;
+        background: #5188C1;
+        border-radius: 5px;
+    }
+    #login {
+        position: absolute;
+        top: 20vh;
+        width: 452px;
+        height: 497px;
+        background: #17212B;
+        /* box-shadow: 0 0 10px #7f7f7f; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .login-field {
+        margin: 15px;
+        width: 300px;
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    .login-field input {
+        font-size: 16px;
+        height: 30px;
+        width: 100%;
+    }
+
+    .login-submit {
+        width: 132px;
+        height: 43px;
+        background: #5188C1;
+        border-radius: 5px;
+        border: none; 
+        outline: none;
+    }
+
+    .message-item {
+        display: flex;
+    }
+
+    .message-item-system {
+        font-size: 14px;
+        color:#858F98;
+    }
+
+    .message-item ~ .message-item {
+        margin-top: 15px;
+    }
+
+    .message-item-right {
+        flex-grow: 1;
+    }
+
+    .message-item-header {
+        display: flex;
+        align-items: center;
+    }
+
+    .message-item-header-name {
+        font-weight: bold;
+        margin-right: 15px;
+    }
+
+    .message-item-header-time {
+        color: gray;
+        font-size: 12px;
+    }
+    @font-face {        
+    font-family: "Ubuntu"; 
+    src: url(./fonts/Ubuntu-Medium.ttf);     
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+    @font-face {        
+    font-family: "Ubuntu regular"; 
+    src: url(./fonts/Ubuntu-Regular.ttf);     
+    font-style: normal; 
+    font-weight: normal; 
+    } 
+</style>
+<div id="app">
+    <div id="login" class="hidden">
+        <div class="login-pic">
+            <img src="./Vector.png" alt="чат">
+        </div>
+        <div class="header">
+            <h2>Авторизация</h2>
+            <div class="header-content">
+                Введите пожалуйста свой ник для дальнейшей авторизации
+            </div>
+        </div>
+        <div class="login-field">
+            <input type="text" class="login-name-input" data-role="login-name-input" placeholder="Введите свой ник">
+        </div>
+        <div class="login-field">
+            <button class="login-submit" data-role="login-submit">Войти</button>
+        </div>
+        <div class="login-error" data-role="login-error"></div>
+    </div>
+
+    <div id="main" class="hidden">
+        <div class="left-side">
+            <div class="user-info">
+                <div class="user-photo" data-role="user-photo"></div>
+                <div class="user-name" data-role="user-name"></div>
+            </div>
+
+            <div class="user-list-container">
+                <div class="user-list-header">
+                    Все пользователи:
+                </div>
+
+                <div class="user-list" data-role="user-list">
+                </div>
+            </div>
+        </div>
+        <div class="right-side">
+            <div class="messages-container" data-role="messages-list"></div>
+            <div class="input-container" data-role="message-sender">
+                <input class="message-input" data-role="message-input" type="text" placeholder="сообщение"/>
+                <button class="send-button" data-role="message-send-button">Отправить</button>
+            </div>
+        </div>
+    </div>
+</div>
+ 
