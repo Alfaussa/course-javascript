@@ -95,28 +95,68 @@
         top: 20vh;
         width: 452px;
         height: 497px;
-        background: #17212B;
+        background: #0E1621;
         /* box-shadow: 0 0 10px #7f7f7f; */
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
+    .login-pic{
+       
+        border-radius: 50%;
+        width: 140px;
+        height: 140px;
+        text-align: center;  
+        background: #17212B;
+    }
+    .login-pic img{
 
+        position: relative; top: 50%;
+  -webkit-transform: translateY(-50%); 
+  -ms-transform: translateY(-50%); 
+  transform: translateY(-50%);
+        
+    }
+    .login-header{
+        text-align: center;  
+        margin-bottom: 30px;
+        width: 70%;
+    }
+    .login-header h2{
+     color: white;
+     font-size: 24px;
+    }
+    .header-content{
+       color: #7F91A4;
+       font-family: "Ubuntu regular";
+       font-size: 16px;
+    }
     .login-field {
         margin: 15px;
         width: 300px;
         display: flex;
         justify-content: center;
-        
+        margin-bottom: 0;
     }
 
     .login-field input {
         font-size: 16px;
         height: 30px;
         width: 100%;
+        border: 0;
+        outline: 0;
+        background: #0E1621;
+        font-family: "Ubuntu light";
+        font-size: 16px;       
     }
-
+    .line{
+        width: 70%;
+        margin-top: 0;
+        background: #465461;
+        margin-bottom: 30px;
+        
+    }
     .login-submit {
         width: 132px;
         height: 43px;
@@ -124,6 +164,10 @@
         border-radius: 5px;
         border: none; 
         outline: none;
+        color: white;
+        text-transform: uppercase;
+        font-size: 15px;
+
     }
 
     .message-item {
@@ -169,13 +213,19 @@
     font-style: normal; 
     font-weight: normal; 
     } 
+    @font-face {        
+    font-family: "Ubuntu light"; 
+    src: url(./fonts/Ubuntu-Light.ttf);     
+    font-style: normal; 
+    font-weight: normal; 
+    } 
 </style>
 <div id="app">
     <div id="login" class="hidden">
         <div class="login-pic">
             <img src="./Vector.png" alt="чат">
         </div>
-        <div class="header">
+        <div class="login-header">
             <h2>Авторизация</h2>
             <div class="header-content">
                 Введите пожалуйста свой ник для дальнейшей авторизации
@@ -184,6 +234,7 @@
         <div class="login-field">
             <input type="text" class="login-name-input" data-role="login-name-input" placeholder="Введите свой ник">
         </div>
+        <hr class="line" size="0.5">
         <div class="login-field">
             <button class="login-submit" data-role="login-submit">Войти</button>
         </div>
