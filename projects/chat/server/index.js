@@ -1,10 +1,10 @@
-import { createServer } from 'http';
-import { Server } from 'ws';
+const http = require('http');
+const Index = require('ws');
 
-const server = createServer(async (req, res) => {
+const server = http.createServer(async (req, res) => {
   res.end('ok');
 });
-const wss = new Server({ server });
+const wss = new Index.Server({ server });
 const connections = new Map();
 
 wss.on('connection', (socket) => {
@@ -57,4 +57,4 @@ function sendMessageFrom(connections, message, from, excludeSelf) {
   }
 }
 
-server.listen(8080);
+server.listen(8585);

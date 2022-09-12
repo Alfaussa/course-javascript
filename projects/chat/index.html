@@ -48,11 +48,22 @@ html, body, #app, #main {
         width: 50px;
         height: 50px;
     }
-
-    .user-list-header {
-        text-transform: uppercase;
-        font-weight: bold;
+  
+ 
+    .top-line{
+        display: flex;
     }
+    .burger{
+    flex-direction: column;
+    display: flex;
+    width: 50px;
+    }
+    .bar {
+    margin: 3px;
+    width: 38px;
+    size:2px;
+    border: 1px solid #6C7982;
+}
 
     .user-list {
         padding: 5px 0 0 10px
@@ -80,18 +91,14 @@ html, body, #app, #main {
         background: #17212B;
     }
 
-    .message-input {
-        height: 30px;
-        flex-grow: 1;
-        margin: 0 10px 0 0;
-    }
 
-    .send-button {
+
+    /* .send-button {
         width: 132px;
         height: 43px;
         background: #5188C1;
         border-radius: 5px;
-    }
+    } */
     #login {
         position: absolute;
         top: 20vh;
@@ -142,7 +149,7 @@ html, body, #app, #main {
         margin-bottom: 0;
     }
 
-    .login-field input {
+    .login-field input ,.message-input{
         font-size: 16px;
         height: 30px;
         width: 100%;
@@ -153,6 +160,9 @@ html, body, #app, #main {
         font-size: 16px;    
         color:white;   
     }
+    .message-input {
+       background: #17212B;
+    }
     .line{
         width: 70%;
         margin-top: 0;
@@ -160,7 +170,7 @@ html, body, #app, #main {
         margin-bottom: 30px;
         
     }
-    .login-submit {
+    .login-submit,.send-button {
         width: 132px;
         height: 43px;
         background: #5188C1;
@@ -173,7 +183,7 @@ html, body, #app, #main {
         margin-bottom: 15px;
 
     }
-
+   
     .message-item {
         display: flex;
     }
@@ -223,6 +233,7 @@ html, body, #app, #main {
     font-style: normal; 
     font-weight: normal; 
     } 
+   
 
 </style>
     <div id="app">
@@ -248,6 +259,10 @@ html, body, #app, #main {
     
         <div id="main" class="hidden">
             <div class="left-side">
+                <div class="top-line">
+                <div class="burger">
+                    <hr class="bar"> <hr class="bar"> <hr class="bar">
+                </div></div>
                 <div class="user-info">
                     <div class="user-photo" data-role="user-photo"></div>
                     <div class="user-name" data-role="user-name"></div>
@@ -255,7 +270,7 @@ html, body, #app, #main {
     
                 <div class="user-list-container">
                     <div class="user-list-header">
-                        Все пользователи:
+                       
                     </div>
     
                     <div class="user-list" data-role="user-list">
