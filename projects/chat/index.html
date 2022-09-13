@@ -6,8 +6,22 @@ html, body, #app, #main {
         padding: 0;
         margin: 0;
         font-family: "Ubuntu"; 
-        color: white;
+        color: #fFFFFF;
     }
+#main::-webkit-scrollbar {
+  width: 3px;               /* ширина всей полосы прокрутки */
+}
+
+#main::-webkit-scrollbar-track {
+  background: #17212B;        /* цвет зоны отслеживания */
+}
+
+#main::-webkit-scrollbar-thumb {
+  background-color: #17212B;    /* цвет бегунка */
+  border-radius: 20px;       /* округлось бегунка */
+  border: 2px solid #6C7982;  /* отступ вокруг бегунка */
+}
+
 
     #app {
         display: flex;
@@ -82,6 +96,7 @@ html, body, #app, #main {
         flex-grow: 1;
         overflow: scroll;
         background: #0E1621;
+        overflow-x: hidden;
     }
 
     .input-container {
@@ -89,6 +104,9 @@ html, body, #app, #main {
         display: flex;
         align-items: center;
         background: #17212B;
+        color:#5B6774;
+        font-family: "Ubuntu light"; 
+        font-size: 14px;
     }
 
 
@@ -197,9 +215,7 @@ html, body, #app, #main {
         margin-top: 15px;
     }
 
-    .message-item-right {
-        flex-grow: 1;
-    }
+    
 
     .message-item-header {
         display: flex;
@@ -208,12 +224,27 @@ html, body, #app, #main {
 
     .message-item-header-name {
         font-weight: bold;
-        margin-right: 15px;
+        color: #5387C1;
+        font-size: 12px;
+        margin: 10px;
     }
+    .message-item-text {
+        font-size: 14px;
+        font-family: "Ubuntu light"; 
+    }
+    
+    .message-content{
+        display: flex;
+        background:#182633;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
 
     .message-item-header-time {
         color: gray;
         font-size: 12px;
+        margin: 5px;
     }
     @font-face {        
     font-family: "Ubuntu"; 
@@ -280,7 +311,7 @@ html, body, #app, #main {
             <div class="right-side">
                 <div class="messages-container" data-role="messages-list"></div>
                 <div class="input-container" data-role="message-sender">
-                    <input class="message-input" data-role="message-input" type="text" placeholder="сообщение"/>
+                    <input class="message-input" data-role="message-input" type="text" placeholder="Введите сообщение..."/>
                     <button class="send-button" data-role="message-send-button">Отправить</button>
                 </div>
             </div>

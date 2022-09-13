@@ -23,9 +23,10 @@ export default class MessageList {
     <div class="message-item-right">
       <div class="message-item-header">
           <div class="message-item-header-name">${sanitize(from)}</div>
-          <div class="message-item-header-time">${time}</div>
       </div>
+      <div class='message-content'>
       <div class="message-item-text">${sanitize(text)}</div>
+      <div class="message-item-header-time">${time}</div></div>
     </div>
     `;
 

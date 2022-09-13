@@ -17,7 +17,7 @@ export default class WSClient {
     this.sendMessage('hello', { name });
   }
   sendTextMessage(message) {
-    this.sendTextMessage('text-message', { message });
+    this.sendMessage('text-message', { message });
   }
   sendMessage(type, data) {
     this.socket.send(
