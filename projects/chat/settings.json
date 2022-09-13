@@ -1,0 +1,14 @@
+{
+  "proxy": {
+    "/chat/ws": {
+      "target": "ws://localhost:8585",
+      "ws": true
+    },
+    "/chat/upload-photo": {
+      "target": "http://localhost:8585"
+    },
+    "/chat/photos": {
+      "target": "http://localhost:8585"
+    }
+  }
+}

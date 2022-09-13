@@ -1,11 +1,11 @@
 import LoginWindow from './ui/loginWindow';
 import MainWindow from './ui/mainWindow';
+import UserPhoto from './ui/userPhoto';
 import UserName from './ui/userName';
 import UserList from './ui/userList';
 import MessageList from './ui/messageList';
 import MessageSender from './ui/messageSender';
 import WSClient from './wsClient';
-import UserPhoto from './ui/userPhoto';
 
 export default class Chat {
   constructor() {
@@ -59,7 +59,8 @@ export default class Chat {
     this.wsClient.sendHello(name);
     this.ui.loginWindow.hide();
     this.ui.mainWindow.show();
-    this.ui.userPhoto.set(`/mega-chat-3/photos/${name}.png?t=${Date.now()}`);
+    this.ui.userName.set(name);
+    this.ui.userPhoto.set(`/chat/photos/${name}.png?t=${Date.now()}`);
   }
 
   onMessage({ type, from, data }) {
@@ -82,7 +83,7 @@ export default class Chat {
         `[data-role=user-avatar][data-user=${data.name}]`
       );
       for (const avatar of avatars) {
-        avatar.style.backgroundImage = `url(/mega-chat-3/photos/${
+        avatar.style.backgroundImage = `url(/chat/photos/${
           data.name
         }.png?t=${Date.now()})`;
       }
